@@ -15,7 +15,7 @@ account_no = "1053038-1"
 headers = {"X-API-KEY": "4269B42F4E5B1431FC58801B1066FE47"}
 
 # test portfolio info 
-req_port_info_url = 'https://api.skynetsystems.co.th/api/v1/account/000/'+account_no
+req_port_info_url = 'https://api.skynetsystems.co.th/api/v1/portfolio/000/'+account_no
 
 response = requests.get(req_port_info_url, headers=headers) 
 portfolio_info = response.json()
@@ -29,9 +29,14 @@ account_info = response.json()
 print(account_info)
 
 # test place order 
-endpoint = 'https://api.skynetsystems.co.th//api/v1/placeOrder/000'
+headers = {
+        'Content-Type' : 'application/json',
+        'X-API-KEY': '4269B42F4E5B1431FC58801B1066FE47',
+        }
+
+endpoint = 'https://api.skynetsystems.co.th/api/v1/placeOrder/000'
 data = {}
-data['accountNo'] = "1053038-1"
+data['accountNo'] = "1053038-4"
 data['symbol'] = 'AOT'
 data['volume'] = 100
 data['position'] = 'O'
