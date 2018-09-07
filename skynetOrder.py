@@ -4,10 +4,9 @@ import json
 class SkynetOrder:
     def __init__(self):
         self.order_header = {'Content-Type' : 'application/json', 'X-API-KEY': config.api_key}
-        self.account_no = config.account_no
         self.order_info_header = {"X-API-KEY": config.api_key}
     
-    def place_order(self, symbol, action, volume, order_type="MP", price=0, account_no=config.account_no):
+    def place_order(self, symbol, action, price=0, volume=100,order_type="MP", account_no=config.account_no):
         order_pack = {}
         order_pack['accountNo'] = account_no
         order_pack['symbol'] = symbol
@@ -32,7 +31,7 @@ class SkynetOrder:
         ord_response = response.json()
         return ord_response
 
-    def req_order_info(self):
-        url = "https://api.skynetsystems.co.th/api/v1/order/000/"+ self.account_no
+    def req_order_info(self, account_no = config.account_no):
+        url = "https://api.skynetsystems.co.th/api/v1/order/000/" + account_no
         r = requests.get(url, headers=self.order_info_header)
         return r.json()

@@ -8,7 +8,7 @@ account_no = config.account_no
 headers = {"X-API-KEY": config.api_key}
 
 symbol = str(input("Symbol : "))
-timeframe = str(input("Timeframe (5,15,60,D) : "))
+timeframe = str(input("Timeframe (1,5,15,60,D) : "))
 start_time = str(input("StartDate 'YYYY-MM-DD': "))
 end_time = str(input("EndDate 'YYYY-MM-DD': "))
 
